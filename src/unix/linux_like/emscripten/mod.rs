@@ -802,6 +802,15 @@ pub const S_IEXEC: mode_t = 0o0100;
 pub const S_IWRITE: mode_t = 0o0200;
 pub const S_IREAD: mode_t = 0o0400;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IEXEC = S_IEXEC;
+        const IWRITE = S_IWRITE;
+        const IREAD = S_IREAD;
+    }
+}
+
 pub const F_LOCK: c_int = 1;
 pub const F_TEST: c_int = 3;
 pub const F_TLOCK: c_int = 2;

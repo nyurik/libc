@@ -1552,6 +1552,36 @@ pub const S_IEXEC: mode_t = 0o0100;
 pub const S_IWRITE: mode_t = 0o0200;
 pub const S_IREAD: mode_t = 0o0400;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IFMT = S_IFMT;
+        const IFREG = S_IFREG;
+        const IFDIR = S_IFDIR;
+        const IFBLK = S_IFBLK;
+        const IFCHR = S_IFCHR;
+        const IFIFO = S_IFIFO;
+        const IRWXU = S_IRWXU;
+        const IRUSR = S_IRUSR;
+        const IWUSR = S_IWUSR;
+        const IXUSR = S_IXUSR;
+        const IRWXG = S_IRWXG;
+        const IRGRP = S_IRGRP;
+        const IWGRP = S_IWGRP;
+        const IXGRP = S_IXGRP;
+        const IRWXO = S_IRWXO;
+        const IROTH = S_IROTH;
+        const IWOTH = S_IWOTH;
+        const IXOTH = S_IXOTH;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IEXEC = S_IEXEC;
+        const IWRITE = S_IWRITE;
+        const IREAD = S_IREAD;
+    }
+}
+
+
 // sys/msg.h
 pub const MSG_NOERROR: c_int = 0o10000;
 

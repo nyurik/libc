@@ -139,3 +139,7 @@ cfg_if! {
         // non-supported targets: empty...
     }
 }
+
+#[repr(transparent)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct Mode(mode_t);

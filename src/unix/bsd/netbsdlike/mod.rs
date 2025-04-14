@@ -176,6 +176,7 @@ pub const FOPEN_MAX: c_uint = 20;
 pub const FILENAME_MAX: c_uint = 1024;
 pub const L_tmpnam: c_uint = 1024;
 pub const O_NOCTTY: c_int = 32768;
+
 pub const S_IFIFO: mode_t = 0o1_0000;
 pub const S_IFCHR: mode_t = 0o2_0000;
 pub const S_IFBLK: mode_t = 0o6_0000;
@@ -199,6 +200,36 @@ pub const S_IRWXO: mode_t = 0o0007;
 pub const S_IXOTH: mode_t = 0o0001;
 pub const S_IWOTH: mode_t = 0o0002;
 pub const S_IROTH: mode_t = 0o0004;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IFIFO = S_IFIFO;
+        const IFCHR = S_IFCHR;
+        const IFBLK = S_IFBLK;
+        const IFDIR = S_IFDIR;
+        const IFREG = S_IFREG;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IFMT = S_IFMT;
+        const IEXEC = S_IEXEC;
+        const IWRITE = S_IWRITE;
+        const IREAD = S_IREAD;
+        const IRWXU = S_IRWXU;
+        const IXUSR = S_IXUSR;
+        const IWUSR = S_IWUSR;
+        const IRUSR = S_IRUSR;
+        const IRWXG = S_IRWXG;
+        const IXGRP = S_IXGRP;
+        const IWGRP = S_IWGRP;
+        const IRGRP = S_IRGRP;
+        const IRWXO = S_IRWXO;
+        const IXOTH = S_IXOTH;
+        const IWOTH = S_IWOTH;
+        const IROTH = S_IROTH;
+    }
+}
+
 pub const F_OK: c_int = 0;
 pub const R_OK: c_int = 4;
 pub const W_OK: c_int = 2;

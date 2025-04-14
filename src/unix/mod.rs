@@ -249,6 +249,15 @@ pub const S_ISUID: crate::mode_t = 0o4000;
 pub const S_ISGID: crate::mode_t = 0o2000;
 pub const S_ISVTX: crate::mode_t = 0o1000;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const ISUID = S_ISUID;
+        const ISGID = S_ISGID;
+        const ISVTX = S_ISVTX;
+    }
+}
+
 cfg_if! {
     if #[cfg(not(any(
         target_os = "haiku",

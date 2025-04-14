@@ -223,6 +223,33 @@ pub const S_IFDIR: mode_t = 0o4_0000;
 pub const S_IFCHR: mode_t = 0o2_0000;
 pub const S_IFIFO: mode_t = 0o1_0000;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IRWXU = S_IRWXU;
+        const IRUSR = S_IRUSR;
+        const IWUSR = S_IWUSR;
+        const IXUSR = S_IXUSR;
+        const IRWXG = S_IRWXG;
+        const IRGRP = S_IRGRP;
+        const IWGRP = S_IWGRP;
+        const IXGRP = S_IXGRP;
+        const IRWXO = S_IRWXO;
+        const IROTH = S_IROTH;
+        const IWOTH = S_IWOTH;
+        const IXOTH = S_IXOTH;
+
+        const IFMT = S_IFMT;
+        const IFSOCK = S_IFSOCK;
+        const IFLNK = S_IFLNK;
+        const IFREG = S_IFREG;
+        const IFBLK = S_IFBLK;
+        const IFDIR = S_IFDIR;
+        const IFCHR = S_IFCHR;
+        const IFIFO = S_IFIFO;
+    }
+}
+
 pub const SHUT_RD: i32 = 0;
 pub const SHUT_WR: i32 = 1;
 pub const SHUT_RDWR: i32 = 2;

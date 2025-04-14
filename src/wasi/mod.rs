@@ -235,6 +235,7 @@ pub const AT_SYMLINK_FOLLOW: c_int = 0x2;
 pub const AT_REMOVEDIR: c_int = 0x4;
 pub const UTIME_OMIT: c_long = 0xfffffffe;
 pub const UTIME_NOW: c_long = 0xffffffff;
+
 pub const S_IFIFO: mode_t = 0o1_0000;
 pub const S_IFCHR: mode_t = 0o2_0000;
 pub const S_IFBLK: mode_t = 0o6_0000;
@@ -258,6 +259,36 @@ pub const S_IRUSR: mode_t = 0o0400;
 pub const S_ISVTX: mode_t = 0o1000;
 pub const S_ISGID: mode_t = 0o2000;
 pub const S_ISUID: mode_t = 0o4000;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IFIFO = S_IFIFO;
+        const IFCHR = S_IFCHR;
+        const IFBLK = S_IFBLK;
+        const IFDIR = S_IFDIR;
+        const IFREG = S_IFREG;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IFMT = S_IFMT;
+        const IRWXO = S_IRWXO;
+        const IXOTH = S_IXOTH;
+        const IWOTH = S_IWOTH;
+        const IROTH = S_IROTH;
+        const IRWXG = S_IRWXG;
+        const IXGRP = S_IXGRP;
+        const IWGRP = S_IWGRP;
+        const IRGRP = S_IRGRP;
+        const IRWXU = S_IRWXU;
+        const IXUSR = S_IXUSR;
+        const IWUSR = S_IWUSR;
+        const IRUSR = S_IRUSR;
+        const ISVTX = S_ISVTX;
+        const ISGID = S_ISGID;
+        const ISUID = S_ISUID;
+    }
+}
+
 pub const DT_UNKNOWN: u8 = 0;
 pub const DT_BLK: u8 = 1;
 pub const DT_CHR: u8 = 2;

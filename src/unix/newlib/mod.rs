@@ -590,6 +590,34 @@ pub const S_IROTH: crate::mode_t = 0o0004;
 pub const S_IWOTH: crate::mode_t = 0o0002;
 pub const S_IXOTH: crate::mode_t = 0o0001;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const BLKSIZE = S_BLKSIZE;
+        const IREAD = S_IREAD;
+        const IWRITE = S_IWRITE;
+        const IEXEC = S_IEXEC;
+        const ENFMT = S_ENFMT;
+        const IFMT = S_IFMT;
+        const IFDIR = S_IFDIR;
+        const IFCHR = S_IFCHR;
+        const IFBLK = S_IFBLK;
+        const IFREG = S_IFREG;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IFIFO = S_IFIFO;
+        const IRUSR = S_IRUSR;
+        const IWUSR = S_IWUSR;
+        const IXUSR = S_IXUSR;
+        const IRGRP = S_IRGRP;
+        const IWGRP = S_IWGRP;
+        const IXGRP = S_IXGRP;
+        const IROTH = S_IROTH;
+        const IWOTH = S_IWOTH;
+        const IXOTH = S_IXOTH;
+    }
+}
+
 pub const SOL_TCP: c_int = 6;
 
 pub const PF_UNSPEC: c_int = 0;

@@ -1456,6 +1456,15 @@ pub const S_ISUID: crate::mode_t = 0o4000;
 pub const S_ISGID: crate::mode_t = 0o2000;
 pub const S_ISVTX: crate::mode_t = 0o1000;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const ISUID = S_ISUID;
+        const ISGID = S_ISGID;
+        const ISVTX = S_ISVTX;
+    }
+}
+
 pub const IF_NAMESIZE: size_t = 16;
 pub const IFNAMSIZ: size_t = IF_NAMESIZE;
 
@@ -1605,6 +1614,33 @@ pub const S_IRWXO: crate::mode_t = 0o0007;
 pub const S_IXOTH: crate::mode_t = 0o0001;
 pub const S_IWOTH: crate::mode_t = 0o0002;
 pub const S_IROTH: crate::mode_t = 0o0004;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IFIFO = S_IFIFO;
+        const IFCHR = S_IFCHR;
+        const IFBLK = S_IFBLK;
+        const IFDIR = S_IFDIR;
+        const IFREG = S_IFREG;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IFMT = S_IFMT;
+        const IRWXU = S_IRWXU;
+        const IXUSR = S_IXUSR;
+        const IWUSR = S_IWUSR;
+        const IRUSR = S_IRUSR;
+        const IRWXG = S_IRWXG;
+        const IXGRP = S_IXGRP;
+        const IWGRP = S_IWGRP;
+        const IRGRP = S_IRGRP;
+        const IRWXO = S_IRWXO;
+        const IXOTH = S_IXOTH;
+        const IWOTH = S_IWOTH;
+        const IROTH = S_IROTH;
+    }
+}
+
 pub const F_OK: c_int = 0;
 pub const R_OK: c_int = 4;
 pub const W_OK: c_int = 2;
@@ -2404,6 +2440,15 @@ pub const POSIX_MADV_WILLNEED: c_int = 3;
 pub const S_IEXEC: mode_t = 0o0100;
 pub const S_IWRITE: mode_t = 0o0200;
 pub const S_IREAD: mode_t = 0o0400;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IEXEC = S_IEXEC;
+        const IWRITE = S_IWRITE;
+        const IREAD = S_IREAD;
+    }
+}
 
 pub const F_LOCK: c_int = 1;
 pub const F_TEST: c_int = 3;

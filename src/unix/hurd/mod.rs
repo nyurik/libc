@@ -2136,6 +2136,37 @@ pub const S_IROOT: mode_t = 0o4000_0000;
 pub const S_ITRANS: mode_t = 0o7000_0000;
 pub const S_IMMAP0: mode_t = 0o10000_0000;
 pub const CMASK: mode_t = 18;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const __IFMT = __S_IFMT;
+        const __IFDIR = __S_IFDIR;
+        const __IFCHR = __S_IFCHR;
+        const __IFBLK = __S_IFBLK;
+        const __IFREG = __S_IFREG;
+        const __IFLNK = __S_IFLNK;
+        const __IFSOCK = __S_IFSOCK;
+        const __IFIFO = __S_IFIFO;
+        const __ISUID = __S_ISUID;
+        const __ISGID = __S_ISGID;
+        const __ISVTX = __S_ISVTX;
+        const __IREAD = __S_IREAD;
+        const __IWRITE = __S_IWRITE;
+        const __IEXEC = __S_IEXEC;
+        const INOCACHE = S_INOCACHE;
+        const IUSEUNK = S_IUSEUNK;
+        const IUNKNOWN = S_IUNKNOWN;
+        const IUNKSHIFT = S_IUNKSHIFT;
+        const IPTRANS = S_IPTRANS;
+        const IATRANS = S_IATRANS;
+        const IROOT = S_IROOT;
+        const ITRANS = S_ITRANS;
+        const IMMAP0 = S_IMMAP0;
+        const CMASK = CMASK;
+    }
+}
+
 pub const UF_SETTABLE: c_uint = 65535;
 pub const UF_NODUMP: c_uint = 1;
 pub const UF_IMMUTABLE: c_uint = 2;
@@ -2150,6 +2181,7 @@ pub const SF_NOUNLINK: c_uint = 1048576;
 pub const SF_SNAPSHOT: c_uint = 2097152;
 pub const UTIME_NOW: c_long = -1;
 pub const UTIME_OMIT: c_long = -2;
+
 pub const S_IFMT: crate::mode_t = 0o17_0000;
 pub const S_IFDIR: crate::mode_t = 0o4_0000;
 pub const S_IFCHR: crate::mode_t = 0o2_0000;
@@ -2179,6 +2211,42 @@ pub const S_IRWXO: crate::mode_t = 0o0007;
 pub const ACCESSPERMS: crate::mode_t = 511;
 pub const ALLPERMS: crate::mode_t = 4095;
 pub const DEFFILEMODE: crate::mode_t = 438;
+
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IFMT = S_IFMT;
+        const IFDIR = S_IFDIR;
+        const IFCHR = S_IFCHR;
+        const IFBLK = S_IFBLK;
+        const IFREG = S_IFREG;
+        const IFIFO = S_IFIFO;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const ISUID = S_ISUID;
+        const ISGID = S_ISGID;
+        const ISVTX = S_ISVTX;
+        const IRUSR = S_IRUSR;
+        const IWUSR = S_IWUSR;
+        const IXUSR = S_IXUSR;
+        const IRWXU = S_IRWXU;
+        const IREAD = S_IREAD;
+        const IWRITE = S_IWRITE;
+        const IEXEC = S_IEXEC;
+        const IRGRP = S_IRGRP;
+        const IWGRP = S_IWGRP;
+        const IXGRP = S_IXGRP;
+        const IRWXG = S_IRWXG;
+        const IROTH = S_IROTH;
+        const IWOTH = S_IWOTH;
+        const IXOTH = S_IXOTH;
+        const IRWXO = S_IRWXO;
+        const ACCESSPERMS = ACCESSPERMS;
+        const ALLPERMS = ALLPERMS;
+        const DEFFILEMODE = DEFFILEMODE;
+    }
+}
+
 pub const S_BLKSIZE: usize = 512;
 pub const STATX_TYPE: c_uint = 1;
 pub const STATX_MODE: c_uint = 2;

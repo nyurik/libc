@@ -2196,6 +2196,37 @@ pub const S_IWUSR: crate::mode_t = 0o0200;
 pub const S_IRUSR: crate::mode_t = 0o0400;
 pub const S_IRWXU: crate::mode_t = 0o0700;
 
+use crate::Mode;
+bitflags::bitflags! {
+    impl Mode: mode_t {
+        const IEXEC = S_IEXEC;
+        const IWRITE = S_IWRITE;
+        const IREAD = S_IREAD;
+
+        const IFIFO = S_IFIFO;
+        const IFCHR = S_IFCHR;
+        const IFDIR = S_IFDIR;
+        const IFBLK = S_IFBLK;
+        const IFREG = S_IFREG;
+        const IFLNK = S_IFLNK;
+        const IFSOCK = S_IFSOCK;
+        const IFMT = S_IFMT;
+
+        const IXOTH = S_IXOTH;
+        const IWOTH = S_IWOTH;
+        const IROTH = S_IROTH;
+        const IRWXO = S_IRWXO;
+        const IXGRP = S_IXGRP;
+        const IWGRP = S_IWGRP;
+        const IRGRP = S_IRGRP;
+        const IRWXG = S_IRWXG;
+        const IXUSR = S_IXUSR;
+        const IWUSR = S_IWUSR;
+        const IRUSR = S_IRUSR;
+        const IRWXU = S_IRWXU;
+    }
+}
+
 pub const F_LOCK: c_int = 1;
 pub const F_TEST: c_int = 3;
 pub const F_TLOCK: c_int = 2;
